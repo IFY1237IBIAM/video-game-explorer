@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IBB_CODEZONE Video Game Explorer</title>
+  <link rel="stylesheet" href="styles/style.css" />
+</head>
+<body>
+  <header>
+    <h1>🎮 Video Game Explorer</h1>
+    <div class="search-container">
+      <input type="text" id="search-input" placeholder="Search games..." />
+      <button id="search-button">Search</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="game-list" class="game-list">
+      <!-- Games will be loaded here -->
+    </section>
+
+    <nav class="pagination">
+      <button id="prev-btn" disabled>Previous</button>
+      <span id="page-info">Page 1</span>
+      <button id="next-btn">Next</button>
+    </nav>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 IBB_CODEZONE Project. Data powered by RAWG API</p>
+  </footer>
+
+  <!-- Modal for game details -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <span id="modal-close" class="close">&times;</span>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <script src="script/main.js" defer></script>
+</body>
+</html>

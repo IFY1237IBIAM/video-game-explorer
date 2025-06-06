@@ -1,0 +1,132 @@
+
+
+header {
+  background-color: #1f2937;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.search-container {
+  display: flex;
+  max-width: 400px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+#search-input {
+  flex-grow: 1;
+  padding: 0.5rem 1rem;
+  border-radius: 6px 0 0 6px;
+  border: none;
+  font-size: 1rem;
+}
+
+#search-button {
+  padding: 0.5rem 1rem;
+  background-color: #fbbf24;
+  border: none;
+  cursor: pointer;
+  border-radius: 0 6px 6px 0;
+  font-weight: bold;
+  color: #121212;
+  transition: background-color 0.2s ease;
+}
+
+#search-button:hover {
+  background-color: #f59e0b;
+}
+
+/* Pagination styles */
+.pagination {
+  margin: 1rem auto;
+  max-width: 400px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  align-items: center;
+}
+
+.pagination button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #fbbf24;
+  color: #121212;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.pagination button:disabled {
+  background-color: #f3f4f6;
+  color: #888;
+  cursor: not-allowed;
+}
+
+.pagination button:hover:not(:disabled) {
+  background-color: #f59e0b;
+}
+
+#page-info {
+  font-weight: bold;
+  color: #eee;
+}
+
+/* Modal styles */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(18, 18, 18, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background-color: #1e293b;
+  padding: 1.5rem;
+  border-radius: 8px;
+  max-width: 600px;
+  max-height: 80vh;
+  overflow-y: auto;
+  color: #eee;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 0.75rem;
+  right: 1rem;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #fbbf24;
+}
+
+/* Responsive improvements */
+@media (max-width: 600px) {
+  .game-list {
+    grid-template-columns: 1fr;
+  }
+
+  header {
+    padding: 1rem 0.5rem;
+  }
+
+  .search-container {
+    width: 100%;
+  }
+}
