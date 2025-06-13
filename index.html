@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>IBB_CODEZONE Video Game Explorer</title>
+  <link rel="icon" href="image/favicon.png" type="image/png" />
   <link rel="stylesheet" href="styles/style.css" />
 </head>
 <body>
@@ -13,9 +14,30 @@
       <input type="text" id="search-input" placeholder="Search games..." />
       <button id="search-button">Search</button>
     </div>
+
+    <!-- Filters -->
+    <div class="filter-container">
+      <select id="genre-filter"><option value="">All Genres</option></select>
+      <select id="platform-filter"><option value="">All Platforms</option></select>
+      <select id="rating-filter">
+        <option value="">All Ratings</option>
+        <option value="4">4+ stars</option>
+        <option value="3">3+ stars</option>
+        <option value="2">2+ stars</option>
+      </select>
+    </div>
+    <button id="theme-toggle" class="theme-toggle">🌙 Dark Mode</button>
   </header>
 
   <main>
+    <div id="loading" class="loading hidden">
+      <div class="spinner"></div>
+    </div>
+    <div class="intro-container">
+      <img src="image/ibbcodezone.png" alt="IBB Logo" class="logo-circle" />
+      <h2>Explore and search for new games</h2>
+    </div>
+
     <section id="game-list" class="game-list">
       <!-- Games will be loaded here -->
     </section>
@@ -35,10 +57,49 @@
   <div id="modal" class="modal hidden">
     <div class="modal-content">
       <span id="modal-close" class="close">&times;</span>
-      <div id="modal-body"></div>
+      <div id="modal-body">
+        <div class="game-details">
+          <!-- Game-specific content will be injected via JavaScript -->
+        </div>
+
+        <div class="modal-actions">
+          <button id="favorite-btn" class="favorite-btn">❤️ Add to Favorites</button>
+        </div>
+
+        <div class="review-section">
+          <h3>Submit a Review</h3>
+          <form id="review-form">
+            <textarea id="review-text" placeholder="Write your review..." required></textarea>
+            <label for="review-rating">Rating:</label>
+            <select id="review-rating" required>
+              <option value="">Rate</option>
+              <option value="1">⭐ 1</option>
+              <option value="2">⭐⭐ 2</option>
+              <option value="3">⭐⭐⭐ 3</option>
+              <option value="4">⭐⭐⭐⭐ 4</option>
+              <option value="5">⭐⭐⭐⭐⭐ 5</option>
+            </select>
+            <button type="submit">Submit Review</button>
+          </form>
+        </div>
+
+        <div class="existing-reviews">
+          <h3>Reviews</h3>
+          <ul id="review-list"></ul>
+        </div>
+      </div>
     </div>
   </div>
 
+  <!-- Reviews Modal (if used elsewhere) -->
+  <div id="review-modal" class="modal hidden">
+    <div class="modal-content">
+      <span id="review-close" class="close">&times;</span>
+      <div id="review-body"></div>
+    </div>
+  </div>
+
+  <button id="back-to-top" class="back-to-top hidden" title="Go to top">⬆️</button>
   <script src="script/main.js" defer></script>
 </body>
 </html>

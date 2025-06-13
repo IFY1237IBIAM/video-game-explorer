@@ -1,5 +1,20 @@
+/* Global Reset & Responsive Setup */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  font-family: system-ui, sans-serif;
+  background-color: #121212;
+  color: #eee;
+}
 
+/* Header */
 header {
   background-color: #1f2937;
   padding: 1rem;
@@ -11,6 +26,7 @@ header {
   gap: 0.75rem;
 }
 
+/* Search Bar */
 .search-container {
   display: flex;
   max-width: 400px;
@@ -24,6 +40,7 @@ header {
   border-radius: 6px 0 0 6px;
   border: none;
   font-size: 1rem;
+  min-width: 0;
 }
 
 #search-button {
@@ -35,13 +52,84 @@ header {
   font-weight: bold;
   color: #121212;
   transition: background-color 0.2s ease;
+  min-width: 0;
 }
 
 #search-button:hover {
   background-color: #f59e0b;
 }
 
-/* Pagination styles */
+/* Game Grid */
+/* Game Card Styling */
+.game-card {
+  background-color: #1e293b;
+  padding: 1rem;
+  border-radius: 8px;
+  color: #eee;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.game-card img {
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 0.75rem;
+}
+
+.game-card:hover {
+  transform: scale(1.02);
+}
+
+/* Game Grid */
+/* Game Card Styling */
+.game-card {
+  background-color: #1e293b;
+  padding: 1rem;
+  border-radius: 8px;
+  color: #eee;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.game-card img {
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 0.75rem;
+}
+
+.game-card:hover {
+  transform: scale(1.02);
+}
+
+/* Game Grid */
+.game-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
+
+/* Pagination */
 .pagination {
   margin: 1rem auto;
   max-width: 400px;
@@ -78,7 +166,7 @@ header {
   color: #eee;
 }
 
-/* Modal styles */
+/* Modal */
 .modal {
   position: fixed;
   top: 0;
@@ -100,6 +188,7 @@ header {
   background-color: #1e293b;
   padding: 1.5rem;
   border-radius: 8px;
+  width: 90%;
   max-width: 600px;
   max-height: 80vh;
   overflow-y: auto;
@@ -116,12 +205,61 @@ header {
   color: #fbbf24;
 }
 
-/* Responsive improvements */
-@media (max-width: 600px) {
-  .game-list {
-    grid-template-columns: 1fr;
-  }
+/* Loading Spinner */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
 
+.loading.hidden {
+  display: none;
+}
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #f3f4f6;
+  border-top: 5px solid #fbbf24;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Back to Top Button */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #fbbf24;
+  color: #121212;
+  border: none;
+  border-radius: 50%;
+  padding: 0.75rem 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+  z-index: 1000;
+  transition: opacity 0.3s ease;
+}
+
+.back-to-top:hover {
+  background-color: #f59e0b;
+}
+
+.back-to-top.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Small Screens */
+@media (max-width: 600px) {
   header {
     padding: 1rem 0.5rem;
   }
@@ -129,4 +267,153 @@ header {
   .search-container {
     width: 100%;
   }
+}
+.intro-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.logo-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fbbf24;
+}
+.favorite-button {
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.favorite-button.favorited {
+  background-color: #22c55e; /* green when favorited */
+}
+.review-section {
+  margin-top: 1rem;
+  text-align: left;
+}
+
+.review-section h3 {
+  margin-bottom: 0.5rem;
+  color: #fbbf24;
+}
+
+.review-section textarea {
+  width: 100%;
+  min-height: 80px;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: none;
+  resize: vertical;
+  font-size: 1rem;
+}
+
+.review-section button {
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.review-section button:hover {
+  background-color: #2563eb;
+}
+
+.review-display {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background-color: #334155;
+  border-radius: 6px;
+}
+/* Default Dark Theme (already in your styles) */
+body.dark-mode {
+  background-color: #121212;
+  color: #eee;
+}
+
+header.dark-mode {
+  background-color: #1f2937;
+  color: #eee;
+}
+
+.game-card.dark-mode,
+.modal-content.dark-mode,
+.review-display.dark-mode {
+  background-color: #1e293b;
+  color: #eee;
+}
+
+button.dark-mode,
+.favorite-button.dark-mode {
+  background-color: #fbbf24;
+  color: #121212;
+}
+
+.close.dark-mode {
+  color: #fbbf24;
+}
+
+/* Light Theme */
+body.light-mode {
+  background-color: #ffffff;
+  color: #111827;
+}
+
+header.light-mode {
+  background-color: #f3f4f6;
+  color: #111;
+}
+
+.game-card.light-mode,
+.modal-content.light-mode,
+.review-display.light-mode {
+  background-color: #ffffff;
+  color: #111827;
+}
+
+button.light-mode,
+.favorite-button.light-mode {
+  background-color: #2563eb;
+  color: #fff;
+}
+
+button.light-mode:hover {
+  background-color: #1d4ed8;
+}
+
+.close.light-mode {
+  color: #dc2626;
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  background: none;
+  border: 2px solid #fbbf24;
+  color: #fbbf24;
+  padding: 0.3rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 0.5rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.theme-toggle:hover {
+  background-color: #fbbf24;
+  color: #121212;
 }
